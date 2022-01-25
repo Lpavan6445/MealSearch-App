@@ -30,7 +30,7 @@
      import {navbar,products,display} from "./script.js"
         var nav = document.getElementById("navbar")
         nav.innerHTML = navbar() 
-        console.log(navbar())
+        // console.log(navbar())
     //  products()
     var submit = document.getElementById("submit")
       submit.addEventListener("click",search)
@@ -41,12 +41,10 @@
             var url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${input}`
             products(url)
        }
-    // var randomMeal = document.getElementById("random")
-    //    randomMeal.addEventListener("click",random)
        async function latest(){
-           console.log("hi")
-            var url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=Indianthali`
-            products(url)
+                  var res = await fetch("https://www.themealdb.com/api/json/v1/1/filter.php?a=Canadian")
+            var data = await res.json()
+            display(data.meals) 
        }
 </script>
 </html>
